@@ -9,6 +9,7 @@ import { RouterModule} from '@angular/router';
   standalone: true,
   imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './edit.component.html',
+  styleUrl: './edit.component.scss'
 })
 export class EditComponent implements OnInit {
   fileNumber: number = 0;
@@ -22,6 +23,8 @@ export class EditComponent implements OnInit {
     gender: ''
   };
 
+  feildName = ['firstName', 'middleName', 'country', 'city', 'dateOfBirth', 'gender']
+  labelName = ['First Name', 'Middle Name', 'Country', 'City', 'Date Of Birth', 'Gender']
   editingField: string | null = null; 
   tempValue: any = '';  
   isEditMode = false;
