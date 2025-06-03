@@ -1,0 +1,31 @@
+
+
+.grid {
+    margin-top: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f7fbff;
+    box-shadow: 0 0 10px rgba(0, 80, 160, 0.1);
+    
+  }
+  
+  .page-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;    
+    min-height: 100vh;      
+    background: linear-gradient(to bottom, #e6f0ff, #f9fbff);
+  }
+  
+  .grid-wrapper {
+    width: 100%;
+    max-width: 1200px; /* Optional */
+    margin: 0 auto;
+    margin-top: 100px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 70, 140, 0.2);
+    border-radius: 12px;
+    background-color: white;
+  }
+  
+  

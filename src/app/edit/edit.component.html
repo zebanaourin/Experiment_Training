@@ -1,0 +1,22 @@
+<h2>Record Details - File Number: {{ fileNumber }}</h2>
+
+<div *ngFor="let key of ['firstName', 'middleName', 'country', 'city', 'dateOfBirth', 'gender']">
+  <div style="margin-bottom: 10px;">
+    <strong>{{ key }}:</strong>
+
+    <!-- Editable field -->
+    <ng-container *ngIf="editingField === key; else viewField">
+      <input [(ngModel)]="tempValue" />
+      <button (click)="saveField(key)">Save</button>
+      <button (click)="cancelEdit()">Cancel</button>
+    </ng-container>
+
+    <!-- View mode -->
+    <ng-template #viewField>
+      {{ formData[key] }}
+      <button (click)="startEdit(key)">Edit</button>
+    </ng-template>
+  </div>
+</div>
+
+<button (click)="goBack()">Back to Search</button>
