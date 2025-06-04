@@ -42,6 +42,7 @@ export class EditComponent implements OnInit {
       this.formData = { ...record };
     }
   }
+  
   startEdit(field: string) {
     this.editingField = field;
     this.tempValue = this.formData[field];
@@ -60,7 +61,6 @@ export class EditComponent implements OnInit {
 
   goBack() {
     this.router.navigate(['/'], { replaceUrl: true });
-
   }
 
   onSubmit() {

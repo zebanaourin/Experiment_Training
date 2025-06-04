@@ -1,6 +1,6 @@
 <div class="search-container">
     <input
-      type="number"
+      type="search"
       [(ngModel)]="searchFilenumber"
       (ngModelChange)="onSearch()"
       placeholder="Enter file number"
@@ -21,7 +21,7 @@
         [defaultColDef]="defaultColDef"
         [pagination]="true"
         [paginationPageSize]="10"
-        [domLayout]="'autoHeight'"
+        domLayout="autoHeight"
         (gridReady)="onGridReady($event)"
         (rowClicked)="onRowClicked($event)">
       </ag-grid-angular>

@@ -7,8 +7,5 @@ export const routes: Routes = [
     { path: '', component: SearchComponent },
     { path: 'edit/:fileNumber', component: EditComponent },
     { path: '**', redirectTo: '' }
-
-    
-    
 ];
 

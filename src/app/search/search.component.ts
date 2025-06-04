@@ -18,7 +18,7 @@ ModuleRegistry.registerModules([ AllCommunityModule ]);
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  searchFilenumber: number = 0;
+  searchFilenumber: string = '';
   rowData: any[] = [];
   allData: any[] = [];
   selectedFileNumber: number | null = null;
@@ -65,23 +65,12 @@ export class SearchComponent implements OnInit {
       this.rowData = this.allData;  
       return;
     }
-
     const searchStr = this.searchFilenumber.toString();
     this.rowData = this.allData.filter((item) =>
       item.fileNumber.toString().startsWith(searchStr)
     );
   }
   
-  
-
-  // onRowClicked(event: any) {
-  //   const fileNumber = event.data.fileNumber;
-  //   console.log("printing")
-  //   this.router.navigate(['/edit', fileNumber]);
-  // }
-
-  
-
 onRowClicked(event: any) {
   this.selectedFileNumber = event.data.fileNumber;
   this.showConfirmPopup = true;
@@ -99,6 +88,8 @@ cancelPopup() {
   this.selectedFileNumber = null;
 }
 
+
+//ag grid related
 defaultColDef = {
   flex: 1,              // Makes each column share space
   minWidth: 100,        // Prevents too narrow columns

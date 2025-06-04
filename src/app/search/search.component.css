@@ -7,20 +7,22 @@
     align-items: flex-start;
     padding: 30px 0;
     background: linear-gradient(135deg, #e0f0ff, #f0f8ff);
-    min-height: 100vh;
+    height: auto;
+    text-align: center;
   }
   
   /* Neat grid wrapper */
   .grid-wrapper {
     width: 95%;
     max-width: 1200px;
-    /* padding: 24px; */
     background-color: #ffffff;
     border-radius: 16px;
     box-shadow: 0 8px 24px rgba(0, 70, 140, 0.15);
     border: 1px solid #c7dcf5;
     transition: box-shadow 0.3s ease;
+    height: auto;
   }
+  
   
   .grid-wrapper:hover {
     box-shadow: 0 10px 30px rgba(0, 70, 140, 0.25);
