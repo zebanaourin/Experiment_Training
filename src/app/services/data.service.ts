@@ -1,28 +1,31 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  private data: any[] = [];
+  private apiUrl = 'http://localhost:8080/api/records';
 
-  setData(data: any[]) {
-    this.data = data;
+  constructor(private http: HttpClient) {}
+
+  getAllData(){
+    return this.http.get<any[]>(this.apiUrl);
   }
 
-  getData(): any[] {
-    return this.data;
+  getByFileNumber(fileNumber: number){
+    return this.http.get(`${this.apiUrl}/${fileNumber}`);
   }
 
-  getByFileNumber(fileNumber: number) {
-    return this.data.find(d => d.fileNumber === fileNumber);
+  updateRecord(record:any){
+    console.log(`${this.apiUrl}/${record.fileNumber}`);
+    return this.http.put(`${this.apiUrl}/${record.fileNumber}`, record);
   }
 
-  updateRecord(updated: any) {
-    const index = this.data.findIndex(d => d.fileNumber === updated.fileNumber);
-    if (index !== -1) {
-      this.data[index] = updated;
-    }
+  deleteRecord(fileNumber : any){
+    return this.http.delete(`${this.apiUrl}/${fileNumber}`);
   }
+
+
 }
 

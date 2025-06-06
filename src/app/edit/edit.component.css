@@ -101,7 +101,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to right, #e0f7fa, #ffffff); /* optional backdrop */
+    background: linear-gradient(to right, #e0f7fa, #ffffff); 
     padding: 20px;
     box-sizing: border-box;
   }

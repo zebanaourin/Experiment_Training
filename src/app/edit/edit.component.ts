@@ -9,7 +9,7 @@ import { RouterModule} from '@angular/router';
   standalone: true,
   imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './edit.component.html',
-  styleUrl: './edit.component.scss'
+  styleUrls: ['./edit.component.css']
 })
 export class EditComponent implements OnInit {
   fileNumber: number = 0;
@@ -20,7 +20,8 @@ export class EditComponent implements OnInit {
     country: '',
     city: '',
     dateOfBirth: '',
-    gender: ''
+    gender: '',
+    
   };
 
   feildName = ['firstName', 'middleName', 'country', 'city', 'dateOfBirth', 'gender']
@@ -37,12 +38,11 @@ export class EditComponent implements OnInit {
 
   ngOnInit() {
     this.fileNumber = Number(this.route.snapshot.paramMap.get('fileNumber'));
-    const record = this.dataService.getByFileNumber(this.fileNumber);
-    if (record) {
-      this.formData = { ...record };
-    }
+    this.dataService.getByFileNumber(this.fileNumber).subscribe(record => {
+    this.formData = record;
+  });
   }
-  
+
   startEdit(field: string) {
     this.editingField = field;
     this.tempValue = this.formData[field];
@@ -51,7 +51,15 @@ export class EditComponent implements OnInit {
   saveField(field: string) {
     this.formData[field] = this.tempValue;
     this.editingField = null;
-    this.dataService.updateRecord(this.formData);
+    
+    this.dataService.updateRecord(this.formData).subscribe(
+      response => {
+        console.log('Update success:', response);
+      },
+      error => {
+        console.error('Update failed:', error);
+      }
+    );
   }
 
   cancelEdit() {
@@ -64,10 +72,10 @@ export class EditComponent implements OnInit {
   }
 
   onSubmit() {
-    this.dataService.updateRecord(this.formData);
-    alert('Record updated successfully!');
-    this.isEditMode = false;
-    this.router.navigate(['/'], { state: { refresh: true } }); // <-- pass refresh flag
-  }
-  
+    this.dataService.updateRecord(this.formData).subscribe(() => {
+      alert('Record updated successfully!');
+      this.isEditMode = false;
+      this.router.navigate(['/'], { state: { refresh: true } });
+    });
+  } 
 }

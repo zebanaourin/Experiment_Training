@@ -7,7 +7,7 @@
     align-items: flex-start;
     padding: 30px 0;
     background: linear-gradient(135deg, #e0f0ff, #f0f8ff);
-    height: auto;
+    height: 100vh;
     text-align: center;
   }
   
@@ -20,7 +20,7 @@
     box-shadow: 0 8px 24px rgba(0, 70, 140, 0.15);
     border: 1px solid #c7dcf5;
     transition: box-shadow 0.3s ease;
-    height: auto;
+    height: auto; 
   }
   
   
@@ -28,27 +28,26 @@
     box-shadow: 0 10px 30px rgba(0, 70, 140, 0.25);
   }
   
-  /* AG Grid custom styles */
+  
   ::ng-deep .ag-theme-alpine .ag-root-wrapper {
     border-radius: 12px;
     overflow: hidden;
     border: none;
   }
-  
-  /* Cell styling */
+ 
   ::ng-deep .ag-theme-alpine .ag-cell {
-    padding: 12px;
     font-size: 15px;
     color: #1a3b5d;
-    background-color: #f9fbff;
+    background-color: white;
     transition: background 0.2s;
+    padding: 0px;
   }
   
   ::ng-deep .ag-theme-alpine .ag-cell:hover {
     background-color: #e6f0ff;
   }
   
-  /* Header cell styling */
+  
   ::ng-deep .ag-theme-alpine .ag-header {
     background: #d0e4ff;
   }
@@ -145,6 +144,25 @@
   .popup button:hover {
     background-color: #0056b3;
   }
+
+  .btn-edit {
+    background-color: #007bff; /* Bootstrap blue */
+    color: white;
+  }
+  
+  .btn-edit:hover {
+    background-color: #0056b3;
+  }
+  
+  .btn-delete {
+    background-color: #dc3545; /* Bootstrap red */
+    color: white;
+  }
+  
+  .btn-delete:hover {
+    background-color: #a71d2a;
+  }
+  
   
   /* Optional: fade-in animation */
   @keyframes fadeIn {
