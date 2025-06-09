@@ -1,5 +1,6 @@
 package com.Experiment_Training.Backend.Entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -17,8 +18,12 @@ public class Recordd {
     private int fileNumber;
     private String firstName;
     private String middleName;
-    private String country;
-    private String city;
+    private String country1;
+    private String city1;
+    @Column(nullable = true)
+    private String country2;
+    @Column(nullable = true)
+    private String city2;
     private String gender;
     private String dateOfBirth;
 
