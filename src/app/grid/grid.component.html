@@ -1,0 +1,27 @@
+<div class="page-container">
+    <div class="grid-wrapper">
+      <ag-grid-angular
+        class="ag-theme-alpine"
+        style="width: 100%; height: 100%;"
+        [rowData]="rowData"
+        [columnDefs]="columnDefs"
+        [defaultColDef]="defaultColDef"
+        [pagination]="true"
+        [paginationPageSize]="10"
+        [domLayout]="'autoHeight'"
+        (gridReady)="onGridReady($event)"
+        [context]="{ componentParent: this }"
+      >
+      </ag-grid-angular>
+    </div>
+  </div>
+  
+  <!-- Popup -->
+  <div *ngIf="showConfirmPopup" class="popup-backdrop">
+    <div class="popup">
+      <p>Are you sure you want to {{ editClicked }} file number {{ selectedFileNumber }}?</p>
+      <button (click)="confirmEdit()">{{ editClicked }}</button>
+      <button (click)="cancelPopup()">Cancel</button>
+    </div>
+  </div>
+  

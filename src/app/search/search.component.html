@@ -1,0 +1,12 @@
+<div class="search-container">
+    <input
+      type="search"
+      [(ngModel)]="searchFilenumber"
+      (ngModelChange)="onSearch()"
+      placeholder="Enter file number"
+      class="search-input"
+    />
+</div>
+  
+<app-grid [searchTerm]="searchFilenumber"></app-grid>
+
