@@ -1,0 +1,62 @@
+<!-- Search Bar -->
+<div class="search-container" *ngIf="!fileNumber">
+    <input
+      type="search"
+      [(ngModel)]="searchTerm"
+      (ngModelChange)="onSearch()"
+      placeholder="Enter file number"
+      class="search-input"
+    />
+  </div>
+  
+  <!-- Grid and Modify Form Section -->
+  <div class="page-container">
+    <div class="grid-wrapper">
+  
+      <!-- Show Grid View if no fileNumber passed -->
+      <ng-container *ngIf="!fileNumber">
+        <ag-grid-angular
+          class="ag-theme-alpine"
+          style="width: 100%; height: 100%;"
+          [rowData]="rowData"
+          [columnDefs]="columnDefs"
+          [defaultColDef]="defaultColDef"
+          [pagination]="true"
+          [paginationPageSize]="10"
+          [domLayout]="'autoHeight'"
+          (gridReady)="onGridReady($event)"
+        ></ag-grid-angular>
+      </ng-container>
+  
+      <!-- Show Modify Form if fileNumber is present -->
+      <ng-container *ngIf="fileNumber">
+        <h2 style="padding-top: 20px; color: #003366;">Modify Record</h2>
+  
+        <div
+          class="form-row"
+          *ngFor="let field of editableFields"
+          style="margin-bottom: 12px;"
+        >
+          <label class="form-label">{{ field.label }}:</label>
+  
+          <!-- Display mode -->
+          <ng-container *ngIf="editingField !== field.key">
+            <span>{{ formData[field.key] ?? 'null' }}</span>
+            <button class="btn-edit" (click)="startEdit(field.key)">Edit</button>
+          </ng-container>
+  
+          <!-- Edit mode -->
+          <ng-container *ngIf="editingField === field.key">
+            <input [(ngModel)]="tempValue" class="search-input" />
+            <button class="btn-edit" (click)="saveField(field.key)">Save</button>
+            <button class="btn-delete" (click)="cancelEdit()">Cancel</button>
+          </ng-container>
+        </div>
+  
+        <button class="btn-edit" (click)="onSubmit()">Save Changes</button>
+        <button class="btn-delete" (click)="goBack()">Cancel</button>
+      </ng-container>
+  
+    </div>
+  </div>
+  

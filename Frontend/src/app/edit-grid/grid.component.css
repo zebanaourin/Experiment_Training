@@ -1,0 +1,172 @@
+
+  
+/* Page container with soft blue gradient background */
+.page-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 0;
+    background: linear-gradient(135deg, #e0f0ff, #f0f8ff);
+    height: 100vh;
+    text-align: center;
+  }
+  
+  /* Neat grid wrapper */
+  .grid-wrapper {
+    width: 95%;
+    max-width: 1200px;
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0, 70, 140, 0.15);
+    border: 1px solid #c7dcf5;
+    transition: box-shadow 0.3s ease;
+    height: auto; 
+  }
+  
+  
+  .grid-wrapper:hover {
+    box-shadow: 0 10px 30px rgba(0, 70, 140, 0.25);
+  }
+  
+  
+  ::ng-deep .ag-theme-alpine .ag-root-wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+    border: none;
+  }
+ 
+  ::ng-deep .ag-theme-alpine .ag-cell {
+    font-size: 15px;
+    color: #1a3b5d;
+    background-color: white;
+    transition: background 0.2s;
+    padding: 0px;
+  }
+  
+  ::ng-deep .ag-theme-alpine .ag-cell:hover {
+    background-color: #e6f0ff;
+  }
+  
+  
+  ::ng-deep .ag-theme-alpine .ag-header {
+    background: #d0e4ff;
+  }
+  
+  ::ng-deep .ag-theme-alpine .ag-header-cell-label {
+    justify-content: center;
+    font-weight: 600;
+    font-size: 16px;
+    color: #003366;
+    padding: 12px;
+  }
+  
+  /* Optional: row hover effect */
+  ::ng-deep .ag-theme-alpine .ag-row-hover {
+    background-color: #e3f0ff !important;
+  }
+  
+  
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh; /* adjust if needed */
+    background: linear-gradient(to right, #e0f0ff, #f0f8ff);
+}
+
+.search-input {
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 2px solid #4682B4; /* steel blue border */
+    border-radius: 8px;
+    outline: none;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 12px rgba(70, 130, 180, 0.2); /* soft shadow */
+    width: 300px;
+}
+
+.search-input:focus {
+    border-color: #1e90ff; /* dodger blue on focus */
+    box-shadow: 0 0 8px rgba(30, 144, 255, 0.6);
+}
+
+.search-input::placeholder {
+    color: #6a8caf;
+}
+
+/* Backdrop covering the full screen */
+.popup-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 51, 102, 0.3); /* transparent blue overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(6px); /* nice blur effect */
+  }
+  
+  /* Centered popup box */
+  .popup {
+    background: linear-gradient(to bottom right, #e6f0ff, #cce0ff); /* soft blue gradient */
+    padding: 30px 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 80, 0.2);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .popup p {
+    font-size: 18px;
+    color: #003366;
+    margin-bottom: 20px;
+  }
+  
+  /* Button styling */
+  .popup button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    margin: 0 10px;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .popup button:hover {
+    background-color: #0056b3;
+  }
+
+  .btn-edit {
+    background-color: #007bff; /* Bootstrap blue */
+    color: white;
+  }
+  
+  .btn-edit:hover {
+    background-color: #0056b3;
+  }
+  
+  .btn-delete {
+    background-color: #dc3545; /* Bootstrap red */
+    color: white;
+  }
+  
+  .btn-delete:hover {
+    background-color: #a71d2a;
+  }
+  
+  
+  /* Optional: fade-in animation */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
